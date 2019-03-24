@@ -1,0 +1,35 @@
+//Different LEDs using the LDR
+int sensorValue=0;
+int sensorpin=A0;
+void setup()
+{
+  
+pinMode(2,OUTPUT);
+pinMode(4,OUTPUT);
+pinMode(6,OUTPUT);
+  
+  Serial.begin(9600);
+}
+void loop()
+{
+  sensorValue=analogRead(sensorpin);
+  Serial.println(sensorValue);
+  if(sensorValue<=300)
+  {
+    digitalWrite(2,HIGH);
+      delay(2000);
+    digitalWrite(2,LOW);
+  }
+  else if(sensorValue<=350)
+  {
+    digitalWrite(4,HIGH);
+    delay(2000);
+    digitalWrite(4,LOW);
+  }
+  else
+  {
+    digitalWrite(6,HIGH);
+        delay(2000);
+    digitalWrite(6,LOW);
+  }
+}

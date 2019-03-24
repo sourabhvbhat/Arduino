@@ -1,0 +1,19 @@
+int led=9; // pin number should have tilde symbol i.e Pluse Width Modulation (PSW)
+int brightness=0;
+int fadeAmount=5;
+void setup()
+{
+  pinMode(led,OUTPUT);
+  
+}
+void loop()
+{
+  analogWrite(led,brightness);
+  brightness=brightness+fadeAmount;
+  if(brightness==0|| brightness==1023)
+  {
+    fadeAmount= -fadeAmount;
+  }
+  delay(30);
+}
+
